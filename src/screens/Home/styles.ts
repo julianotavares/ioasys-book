@@ -1,5 +1,5 @@
-import { FlatList } from 'react-native';
 import styled from 'styled-components/native';
+import { FlatList } from 'react-native';
 
 export const ImageBackground = styled.ImageBackground`
   flex: 1;
@@ -16,7 +16,7 @@ export const Header = styled.View`
 
   width: 100%;
 
-  margin-top: 20px;
+  margin-top: 60px;
   padding: 0 20px 30px 20px;
 `;
 
@@ -24,7 +24,9 @@ export const LogoTitle = styled.View`
   flex-direction: row;
 `;
 
-export const Logo = styled.Image``;
+export const Logo = styled.Image`
+  margin-top: 4px;
+`;
 
 export const HeaderTitle = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
@@ -33,7 +35,7 @@ export const HeaderTitle = styled.Text`
   font-size: 28px;
   line-height: 40px;
 
-  margin-left: 16px;
+  margin: 0px 16px;
 
   color: ${({ theme }) => theme.colors.title};
 `;
