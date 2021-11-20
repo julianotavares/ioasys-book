@@ -22,7 +22,9 @@ export const LoginHeader = styled.View`
   margin-bottom: 25px;
 `;
 
-export const LoginLogo = styled.Image``;
+export const LoginLogo = styled.Image`
+  margin-top: 4px;
+`;
 
 export const LoginForm = styled.View`
   justify-content: center;
