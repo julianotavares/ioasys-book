@@ -15,6 +15,7 @@ module.exports = {
               '@global': './src/global',
               '@helpers': './src/helpers',
               '@hooks': './src/hooks',
+              '@models': './src/models',
               '@screens': './src/screens',
               '@routes': './src/routes',
               '@services': './src/services',

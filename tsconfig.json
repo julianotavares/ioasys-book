@@ -28,6 +28,8 @@
       "@helpers": ["./src/helpers"],
       "@hooks/*": ["./src/hooks/*"],
       "@hooks": ["./src/hooks"],
+      "@models*": ["./src/models*"],
+      "@models": ["./src/models"],
       "@screens/*": ["src/screens/*"],
       "@screens": ["src/screens"],
       "@routes/*": ["./src/routes/*"],

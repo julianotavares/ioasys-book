@@ -21,15 +21,13 @@ module.exports = {
     "ts",
     "tsx"
   ],
-  collectCoverageFrom: [
-    "<rootDir>/src/**/*.tsx",
-    "<rootDir>/!src/**/*.spec.tsx"
-  ],
   testMatch: [
     "**/__tests__/**/*.ts?(x)",
     "**/?(*.)(spec|test).ts?(x)"
 ],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: "<rootDir>",
+    "^image![a-zA-Z0-9$_-]+$": "GlobalImageStub",
+    "^[@./a-zA-Z0-9$_-]+\\.(png|gif)$": "RelativeImageStub"
   }),
 }

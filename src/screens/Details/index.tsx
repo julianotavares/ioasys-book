@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-import {Book} from '@models/book';
-import {RootStackParamList} from '@models/navigation';
-import api from '@services/api';
+import { Book } from '@models/book';
+import { RootStackParamList } from '@models/navigation';
+import { api } from '@configs';
 
 import backArrow from '@assets/images/backArrow.png';
 import quotationMark from '@assets/images/quotationMark.png';
@@ -15,9 +15,9 @@ import * as S from './styles';
 
 type detailsScreenProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
-const Details: React.FC = () => {
+export const Details: React.FC = () => {
   const [book, setBook] = useState<Book>();
-  const {goBack} = useNavigation<detailsScreenProp>();
+  const { goBack } = useNavigation<detailsScreenProp>();
   const id = useRoute().params;
 
   const getBookDetails = async () => {
@@ -47,7 +47,7 @@ const Details: React.FC = () => {
       <S.Wrapper>
         <S.Content>
           <S.ImageContent>
-            <S.Image source={{uri: book?.imageUrl}} />
+            <S.Image source={{ uri: book?.imageUrl }} />
           </S.ImageContent>
           <S.Title>{book?.title}</S.Title>
           <S.Authors>{book?.authors.map(author => `${author}, `)}</S.Authors>
@@ -85,5 +85,3 @@ const Details: React.FC = () => {
     </S.Container>
   );
 };
-
-export default Details;

@@ -26,15 +26,20 @@
       "prettier"
   ],
   "rules": {
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "camelcase": "off",
-    "react/prop-types": "off",
+    "no-console": "off",
+    "no-shadow": "off",
+    "import/prefer-default-export": "off",
     "consistent-return": "off",
+    "react/prop-types": "off",
     "react/no-unused-prop-types": "off",
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
-    "import/prefer-default-export": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-no-bind": "off",
     "react/jsx-filename-extension": [
       1,
       {
