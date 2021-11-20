@@ -41,7 +41,7 @@ export const HeaderTitle = styled.Text`
 `;
 
 export const ButtonFilter = styled.TouchableOpacity`
-  margin: 0px 0px 0px 16px;
+  margin-left: 16px;
 `;
 
 export const Filter = styled.Image``;

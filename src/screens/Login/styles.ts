@@ -19,7 +19,7 @@ export const LoginHeader = styled.View`
   flex-direction: row;
   align-items: center;
 
-  margin-bottom: 25px;
+  margin-bottom: 28px;
 `;
 
 export const LoginLogo = styled.Image`
@@ -31,7 +31,7 @@ export const LoginForm = styled.View`
 `;
 
 export const LoginTitle = styled.Text`
-  margin-left: 16.6px;
+  margin-left: 16px;
 
   font-family: ${({ theme }) => theme.fonts.regular};
   font-style: normal;
@@ -99,7 +99,7 @@ export const LoginButton = styled.TouchableOpacity`
 export const LoginButtonText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
   line-height: 20px;
 
