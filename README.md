@@ -74,7 +74,7 @@ Ao filtrar os dados da api ele retornará aquele que der match com o resultado, 
 Utilizei na parte do login e login persistente o async Storage do React Native utilizando um contexto de autenticação para manter o usuário logado no app com o refresh token que a própria API fornece.
 
 
-### Testes Unitários
+### 💊 Testes Unitários
 
 Configurei os testes unitários utilizando o Jest e bibliotecas auxiliares para execução dos testes unitários.
 Criei o teste unitário para o hook de autenticação e testes simples para os componentes e screens.
@@ -84,7 +84,7 @@ Para rodar os testes:
 # Rodar os testes unitários
 yarn test
 ```
-OBS.: Ao adicionar um novo commit, a aplicação só estará apta a subir para o repositório se passar pelo linter e test que são disparados pelo husky ao escrever o commit, criando assim a regra básica de qualidade de código e boas práticas.
+OBS.: Ao adicionar um novo commit, a aplicação só estará apta a subir para o repositório se passar pelo linter e test que são disparados pelo husky ao escrever o commit, criando assim o costume básico de qualidade de código e boas práticas.
 
 <h2>
   <img src="./assets/tests.png" />
