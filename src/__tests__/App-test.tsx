@@ -1,13 +1,22 @@
 import 'react-native';
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react-native';
+import { ThemeProvider } from 'styled-components/native';
+import theme from '@src/styles/theme';
+
 import App from '../App';
 
-// Note: test renderer must be required after react-native.
+const Providers: React.FC = ({ children }) => {
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};
+
 beforeAll(() => {
   jest.mock('@react-native-async-storage/async-storage');
 });
 
 it('renders correctly', () => {
-  renderer.create(<App />);
+  render(<App />, {
+    wrapper: Providers,
+  });
+  expect(<App />).toBeTruthy();
 });

@@ -5,7 +5,7 @@ import { StatusBar } from 'react-native';
 
 import theme from '@styles/theme';
 
-import { AuthProvider } from '@contexts/context';
+import { AuthProvider } from '@contexts/auth';
 import Routes from '@src/routes';
 
 const App = (): JSX.Element => {

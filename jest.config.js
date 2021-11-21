@@ -6,8 +6,16 @@ module.exports = {
   collectCoverageFrom: ['<rootDir>/src/**/*.{ts,tsx}'],
   coverageDirectory: '<rootDir>/__tests__/coverage',
   testEnvironment: 'jsdom',
+  setupFilesAfterEnv: [
+    "@testing-library/jest-native/extend-expect",
+    "jest-styled-components"
+  ],
   clearMocks: true,
-  transform: {},
+  transformIgnorePatterns: [
+    'node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|rollbar-react-native|@fortawesome|@react-native|@react-navigation)',
+  ],
+  transform: {
+  },
   globals: {
     "__DEV__": true
   },
@@ -27,7 +35,5 @@ module.exports = {
 ],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: "<rootDir>",
-    "^image![a-zA-Z0-9$_-]+$": "GlobalImageStub",
-    "^[@./a-zA-Z0-9$_-]+\\.(png|gif)$": "RelativeImageStub"
   }),
 }

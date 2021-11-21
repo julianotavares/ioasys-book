@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Details, Home, Login } from '@screens';
 
-import Context from '@contexts/context';
+import { useAuth } from '@contexts/auth';
 
 const Stack = createNativeStackNavigator();
 
 const StackViews = () => {
-  const { signed } = useContext(Context);
+  const { signed } = useAuth();
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {signed ? (

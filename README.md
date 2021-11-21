@@ -62,6 +62,7 @@ As seguintes bibliotecas foram usadas na construção do projeto:
 - Eslint - Linter.
 - Prettier - Formatador de códigos, boas práticas de código limpo e organização.
 - Husky - Utilitário de melhoramento para commits.
+- Jest - Framework de testes.
 
 ### 🛠 Itens importantes
 
@@ -71,6 +72,19 @@ Este desafio foi muito interessante, principalmente na parte de filtragem e de p
 Ao filtrar os dados da api ele retornará aquele que der match com o resultado, caso contrário aparecerá uma mensagem que "Nenhum registro foi encontrado" e um botão para limpar o filtro e retornar a listagem normal.
 
 Utilizei na parte do login e login persistente o async Storage do React Native utilizando um contexto de autenticação para manter o usuário logado no app com o refresh token que a própria API fornece.
+
+
+### Testes Unitários
+
+Configurei os testes unitários utilizando o Jest e bibliotecas auxiliares para execução dos testes unitários.
+Criei o teste unitário para o hook de autenticação e testes simples para os componentes e screens.
+
+Para rodar os testes:
+```bash
+# Rodar os testes unitários
+yarn test
+```
+OBS.: Ao adicionar um novo commit, a aplicação só estará apta a subir para o repositório se passar pelo linter e test que são disparados pelo husky ao escrever o commit, criando assim a regra básica de qualidade de código e boas práticas.
 
 ### Autor
 ---

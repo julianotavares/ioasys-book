@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext, useCallback } from 'react';
-import { Modal, StatusBar, View, Text, Button } from 'react-native';
+import React, { useEffect, useState, useCallback } from 'react';
+import { Modal, StatusBar, Text, Button } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -16,7 +16,7 @@ import iconFilter from '@assets/images/filter.png';
 
 import { api } from '@configs';
 
-import Context from '@contexts/context';
+import { useAuth } from '@contexts/auth';
 
 import * as S from './styles';
 
@@ -36,7 +36,7 @@ export const Home: React.FC = () => {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState<number>(1);
   const { navigate } = useNavigation<homeScreenProp>();
-  const { token, signOut } = useContext(Context);
+  const { token, signOut } = useAuth();
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -173,7 +173,10 @@ export const Home: React.FC = () => {
 
   const renderItem = ({ item }: any) => {
     return (
-      <S.Cards onPress={() => navigateToDetails(item.id)}>
+      <S.Cards
+        testID="button-detail"
+        onPress={() => navigateToDetails(item.id)}
+      >
         <S.ImageView>
           <S.Image source={{ uri: item.imageUrl }} resizeMode="contain" />
         </S.ImageView>

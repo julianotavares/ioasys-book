@@ -1,9 +1,19 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React, { useEffect, useState, createContext } from 'react';
+import React, {
+  useEffect,
+  useState,
+  createContext,
+  ReactNode,
+  useContext,
+} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppContextType } from '@models/navigation';
 import { api } from '@configs';
+
+interface AuthProviderProps {
+  children: ReactNode;
+}
 
 const defaultState = {
   signed: false,
@@ -12,9 +22,9 @@ const defaultState = {
   signIn: () => {},
 };
 
-const Context = createContext<AppContextType>(defaultState);
+const AuthContext = createContext<AppContextType>(defaultState);
 
-export const AuthProvider: React.FC = ({ children }: any) => {
+const AuthProvider = ({ children }: AuthProviderProps) => {
   const [token, setToken] = useState<string>('');
 
   useEffect(() => {
@@ -33,12 +43,13 @@ export const AuthProvider: React.FC = ({ children }: any) => {
     loadStoragedData();
   }, []);
 
-  const signIn = async (email: string, password: string) => {
+  async function signIn(email: string, password: string) {
     try {
       const response = await api.post('/auth/sign-in', {
         email,
         password,
       });
+
       await AsyncStorage.setItem(
         '@ioasysBook:token',
         response.headers.authorization,
@@ -47,9 +58,9 @@ export const AuthProvider: React.FC = ({ children }: any) => {
     } catch (error) {
       console.error(error);
     }
-  };
+  }
 
-  const signOut = () => {
+  async function signOut() {
     AsyncStorage.clear()
       .then(() => {
         setToken('');
@@ -57,9 +68,9 @@ export const AuthProvider: React.FC = ({ children }: any) => {
       .catch(err => {
         throw new Error(err);
       });
-  };
+  }
   return (
-    <Context.Provider
+    <AuthContext.Provider
       value={{
         signed: !!token,
         token,
@@ -68,8 +79,13 @@ export const AuthProvider: React.FC = ({ children }: any) => {
       }}
     >
       {children}
-    </Context.Provider>
+    </AuthContext.Provider>
   );
 };
 
-export default Context;
+function useAuth() {
+  const context = useContext(AuthContext);
+  return context;
+}
+
+export { AuthProvider, useAuth };
