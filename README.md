@@ -86,6 +86,10 @@ yarn test
 ```
 OBS.: Ao adicionar um novo commit, a aplicação só estará apta a subir para o repositório se passar pelo linter e test que são disparados pelo husky ao escrever o commit, criando assim a regra básica de qualidade de código e boas práticas.
 
+<h2>
+  <img src="./assets/tests.png" />
+</h2>
+
 ### Autor
 ---
 
